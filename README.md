@@ -25,9 +25,9 @@ mv LncRAnalyzer-Docker LncRAnalyzer && cd LncRAnalyzer
 docker build -t lncranalyzer .
 ```
 
-4. Run container to get paths in tools.groovy
+4. Run container to get configured tools.groovy
 ```
-docker run -it --rm -v $(pwd):/pipeline
+docker run -it --rm -v $(pwd):/pipeline lncranalyzer
 ```
 
 5. Prepare your data and data.txt in working directory
