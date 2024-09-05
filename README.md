@@ -27,7 +27,7 @@ docker build -t lncranalyzer .
 
 4. Run Container with Interactive Shell
 ```
-docker run -it --rm -v /home/mpilab/LncRAnalyzer:/pipeline/LncRAnalyzer
+docker run -it --rm -v /home/mpilab/LncRAnalyzer:/pipeline/LncRAnalyzer lncranalyzer
 ```
 
 5. Prepare your data and data.txt in working directory
