@@ -11,7 +11,7 @@ LncRAnalyzer can be used to identify lncRNAs and Novel Protein Coding Transcript
 
 # Implementation
 1. To execute the steps in pipeline, download latest release of LncRAnalyzer to your local system with following commamnd
-2. ```
+```
 git clone https://github.com/nikhilshinde0909/LncRAnalyzer.git
 ```
 
