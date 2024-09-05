@@ -1,4 +1,4 @@
-FROM ubuntu:22.04
+FROM ubuntu:latest
 
 ENV DEBIAN_FRONTEND=noninteractive
 LABEL authors="sd1172@srmist.edu.in" \
@@ -34,12 +34,15 @@ RUN mamba env create --file /tmp/rnasamba.yml && conda clean -a
 COPY FEELnc.yml /tmp/
 RUN mamba env create --file /tmp/FEELnc.yml && conda clean -a
 
-# Set the working directory
-WORKDIR /pipeline
+# Activate the environment for further commands
+SHELL ["micromamba", "run", "-n", "your_env_name", "/bin/bash", "-c"]
 
-# Add paths for tools
+# Copy and run the script to add paths for tools
 COPY add_paths_for_tools.sh /tmp/
 RUN bash /tmp/add_paths_for_tools.sh
+
+# Set the working directory
+WORKDIR /pipeline
 
 # Default command to start a bash shell
 CMD ["bash"]
