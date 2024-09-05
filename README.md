@@ -25,9 +25,9 @@ mv LncRAnalyzer-Docker LncRAnalyzer && cd LncRAnalyzer
 docker build -t lncranalyzer .
 ```
 
-4. Run container to get configured tools.groovy
+4. Run Container with Interactive Shell
 ```
-docker run -it --rm -v $(pwd):/pipeline lncranalyzer
+docker run -it --rm -v /home/mpilab/LncRAnalyzer:/pipeline/LncRAnalyzer
 ```
 
 5. Prepare your data and data.txt in working directory
