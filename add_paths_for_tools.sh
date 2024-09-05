@@ -1,6 +1,5 @@
 #!/bin/bash
 # get paths
-echo 'getting paths'
 Activate_path=`which activate 2>/dev/null`
 bpipe_path=`which bpipe 2>/dev/null`
 hisat2_path=`which hisat2 2>/dev/null`
@@ -38,42 +37,41 @@ CPAT_path=`which cpat.py 2>/dev/null`
 slncky_path=`which slncky 2>/dev/null`
 
 # Add paths to tools.groovy
-echo 'adding paths to tools.groovy'
-echo "// Path to tools used by the pipeline" > ./tools.groovy
-echo "Activate=\"$Activate_path\"" >> ./tools.groovy
-echo "bpipe=\"$bpipe_path\"" >> ./tools.groovy
-echo "hisat2=\"$hisat2_path\"" >> ./tools.groovy
-echo "stringtie=\"$stringtie_path\"" >> ./tools.groovy
-echo "gffread=\"$gffread_path\"" >> ./tools.groovy
-echo "gffcompare=\"$gffcompare_path\"" >> ./tools.groovy
-echo "samtools=\"$samtools_path\"" >> ./tools.groovy
-echo "hmmpress=\"$hmmpress_path\"" >> ./tools.groovy
-echo "pfamscan=\"$pfamscan_path\"" >> ./tools.groovy
-echo "transeq=\"$transeq_path\"" >> ./tools.groovy
-echo "bowtie2=\"$bowtie2_path\"" >> ./tools.groovy
-echo "bamToFastq=\"$bamToFastq_path\"" >> ./tools.groovy
-echo "fastp=\"$fastp_path\"" >> ./tools.groovy
-echo "seqtk=\"$seqtk_path\"" >> ./tools.groovy
-echo "python3=\"$python3_path\"" >> ./tools.groovy
-echo "Rscript=\"$Rscript_path\"" >> ./tools.groovy
-echo "" >> ./tools.groovy
-echo "// Path to PLEK Optional" >> ./tools.groovy
-echo "PLEK=\"$PLEK_path\"" >> ./tools.groovy
-echo "PLEKModelling=\"$PLEKModelling_path\"" >> ./tools.groovy
-echo ""	>> ./tools.groovy
-echo "// Path to rnasamba" >> ./tools.groovy
-echo "rnasamba=\"$rnasamba_path\"" >> ./tools.groovy
-echo ""	>> ./tools.groovy
-echo "// Path to FEELnc env and tools used by the pipeline" >> ./tools.groovy
-echo "perl=\"$perl_path\"" >> ./tools.groovy
-echo "FEELnc_filter=\"$FEELnc_filter_path\"" >> ./tools.groovy
-echo "FEELnc_codpot=\"$FEELnc_codpot_path\"" >> ./tools.groovy
-echo "FEELnc_classifier=\"$FEELnc_classifier_path\"" >> ./tools.groovy
-echo ""	>> ./tools.groovy
-echo "// Path to python 2.7, CPC2, CPAT and slncky" >> ./tools.groovy
-echo "python2=\"$python2_path\"" >> ./tools.groovy
-echo "cpc2=\"$cpc2_path\"" >> ./tools.groovy
-echo "make_hexamer=\"$make_hexamer_path\"" >> ./tools.groovy
-echo "logit_model=\"$logit_model_path\"" >> ./tools.groovy
-echo "CPAT=\"$CPAT_path\"" >> ./tools.groovy
-echo "slncky=\"$slncky_path\"" >> ./tools.groovy
+echo "// Path to tools used by the pipeline"
+echo "Activate=\"$Activate_path\"" 
+echo "bpipe=\"$bpipe_path\"" 
+echo "hisat2=\"$hisat2_path\"" 
+echo "stringtie=\"$stringtie_path\"" 
+echo "gffread=\"$gffread_path\"" 
+echo "gffcompare=\"$gffcompare_path\"" 
+echo "samtools=\"$samtools_path\"" 
+echo "hmmpress=\"$hmmpress_path\"" 
+echo "pfamscan=\"$pfamscan_path\"" 
+echo "transeq=\"$transeq_path\"" 
+echo "bowtie2=\"$bowtie2_path\"" 
+echo "bamToFastq=\"$bamToFastq_path\"" 
+echo "fastp=\"$fastp_path\"" 
+echo "seqtk=\"$seqtk_path\"" 
+echo "python3=\"$python3_path\"" 
+echo "Rscript=\"$Rscript_path\"" 
+echo "" 
+echo "// Path to PLEK Optional" 
+echo "PLEK=\"$PLEK_path\"" 
+echo "PLEKModelling=\"$PLEKModelling_path\"" 
+echo ""	
+echo "// Path to rnasamba" 
+echo "rnasamba=\"$rnasamba_path\"" 
+echo ""	
+echo "// Path to FEELnc env and tools used by the pipeline" 
+echo "perl=\"$perl_path\"" 
+echo "FEELnc_filter=\"$FEELnc_filter_path\"" 
+echo "FEELnc_codpot=\"$FEELnc_codpot_path\"" 
+echo "FEELnc_classifier=\"$FEELnc_classifier_path\"" 
+echo ""	
+echo "// Path to python 2.7, CPC2, CPAT and slncky" 
+echo "python2=\"$python2_path\"" 
+echo "cpc2=\"$cpc2_path\"" 
+echo "make_hexamer=\"$make_hexamer_path\"" 
+echo "logit_model=\"$logit_model_path\"" 
+echo "CPAT=\"$CPAT_path\"" 
+echo "slncky=\"$slncky_path\"" 
