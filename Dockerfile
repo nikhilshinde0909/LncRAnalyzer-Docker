@@ -37,6 +37,7 @@ RUN mamba env create --file /tmp/FEELnc.yml && conda clean -a
 # Add paths for tools
 COPY add_paths_for_tools.sh /tmp/
 RUN bash /tmp/add_paths_for_tools.sh
+RUN cp /tmp/tools.groovy .
 
 # Set the working directory
 WORKDIR /pipeline
