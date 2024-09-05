@@ -67,7 +67,6 @@ eg. python download_datasets_ensembl.py sbicolor
 8. Run the LncRNAlyzer using docker as follows
 ```
 docker run --rm \
-    -v /home/mpilab/LncRAnalyzer:/pipeline/LncRAnalyzer \
     -v $(pwd)/data:/pipeline/data \
     -v $(pwd)/data.txt:/pipeline/data.txt \
     lncranalyzer bpipe run -n 16 /pipeline/LncRAnalyzer/Main.groovy /pipeline/data.txt
