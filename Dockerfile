@@ -34,13 +34,12 @@ RUN mamba env create --file /tmp/rnasamba.yml && conda clean -a
 COPY FEELnc.yml /tmp/
 RUN mamba env create --file /tmp/FEELnc.yml && conda clean -a
 
-# Add paths for tools
-WORKDIR $(pwd)
-COPY add_paths_for_tools.sh /tmp/
-RUN bash /tmp/add_paths_for_tools.sh
-
 # Set the working directory
 WORKDIR /pipeline
+
+# Add paths for tools
+COPY add_paths_for_tools.sh /tmp/
+RUN bash /tmp/add_paths_for_tools.sh
 
 # Default command to start a bash shell
 CMD ["bash"]
