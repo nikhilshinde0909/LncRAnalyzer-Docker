@@ -34,15 +34,12 @@ RUN mamba env create --file /tmp/rnasamba.yml && conda clean -a
 COPY FEELnc.yml /tmp/
 RUN mamba env create --file /tmp/FEELnc.yml && conda clean -a
 
-# Activate the environment for further commands
-SHELL ["micromamba", "run", "-n", "your_env_name", "/bin/bash", "-c"]
+# Set the working directory
+WORKDIR /pipeline
 
 # Copy and run the script to add paths for tools
 COPY add_paths_for_tools.sh /tmp/
-RUN bash /tmp/add_paths_for_tools.sh
-
-# Set the working directory
-WORKDIR /pipeline
+RUN chmod +x /tmp/add_paths_for_tools.sh && bash /tmp/add_paths_for_tools.sh > $(pwd)/tools.groovy
 
 # Default command to start a bash shell
 CMD ["bash"]
