@@ -12,12 +12,12 @@ LncRAnalyzer can be used to identify lncRNAs and Novel Protein Coding Transcript
 # Implementation
 1. To execute the steps in pipeline, download latest release of LncRAnalyzer to your local system with following commamnd
 ```
-git clone https://github.com/nikhilshinde0909/LncRAnalyzer.git
+git clone https://github.com/nikhilshinde0909/LncRAnalyzer-Docker.git
 ```
 
-2. Change directory
+2. Rename and change directory
 ```
-cd LncRAnalyzer
+mv LncRAnalyzer-Docker LncRAnalyzer && cd LncRAnalyzer
 ```
 
 3. Build docker image
@@ -69,7 +69,7 @@ docker run --rm \
 ## Thanks for using LncRAnalyzer docker version !!
 
 ## Peformace
-The performance of coding potential prediction using CPAT, CPC2, RNAsamba and FEELnc was estimated with 50 RNA-Seq accessions of sorghum cultivar PR22 from past studies [https://doi.org/10.1186/s12864-019-5734-x] 
+The performance of coding potential prediction using CPAT, CPC2, RNAsamba, LGC and FEELnc was estimated with 50 RNA-Seq accessions of sorghum cultivar PR22 from past studies [https://doi.org/10.1186/s12864-019-5734-x] 
 
 <p align="center">
   <img src="https://github.com/nikhilshinde0909/LncRAnalyzer-Docker/blob/main/scripts/ROC.png" width=70% height=70%>
