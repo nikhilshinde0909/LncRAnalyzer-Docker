@@ -1,4 +1,4 @@
-## LncRAnalyzer Docker Version
+# LncRAnalyzer Docker Version
 Pipeline for identification of lncRNAs and Novel Protein Coding Transcripts (NPCTs)
 
 # Introduction
@@ -66,7 +66,7 @@ docker run --rm \
     LncRAnalyzer bpipe run -n 16 /pipeline/LncRAnalyzer/Main.groovy /pipeline/data.txt
 ```
 
-## Thanks for using LncRAnalyzer !!
+## Thanks for using LncRAnalyzer docker version !!
 
 ## Peformace
 The performance of coding potential prediction using CPAT, CPC2, RNAsamba and FEELnc was estimated with 50 RNA-Seq accessions of sorghum cultivar PR22 from past studies [https://doi.org/10.1186/s12864-019-5734-x] 
