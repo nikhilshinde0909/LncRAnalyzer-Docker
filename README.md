@@ -1,4 +1,4 @@
-# LncRAnalyzer Docker Version
+## LncRAnalyzer Docker Version
 Pipeline for identification of lncRNAs and Novel Protein Coding Transcripts (NPCTs)
 
 # Introduction
@@ -65,7 +65,7 @@ docker run --rm \
     -v $(pwd)/data.txt:/pipeline/data.txt \
     LncRAnalyzer bpipe run -n 16 /pipeline/LncRAnalyzer/Main.groovy /pipeline/data.txt
 ```
-```
+
 ## Thanks for using LncRAnalyzer !!
 
 ## Peformace
