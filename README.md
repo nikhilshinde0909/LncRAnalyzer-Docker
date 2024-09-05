@@ -22,7 +22,7 @@ mv LncRAnalyzer-Docker LncRAnalyzer && cd LncRAnalyzer
 
 3. Build docker image
 ```
-docker build -t LncRAnalyzer .
+docker build -t lncranalyzer .
 ```
 
 4. Run Container with Interactive Shell
@@ -63,7 +63,7 @@ docker run --rm \
     -v /home/mpilab/LncRAnalyzer:/pipeline/LncRAnalyzer \
     -v $(pwd)/data:/pipeline/data \
     -v $(pwd)/data.txt:/pipeline/data.txt \
-    LncRAnalyzer bpipe run -n 16 /pipeline/LncRAnalyzer/Main.groovy /pipeline/data.txt
+    lncranalyzer bpipe run -n 16 /pipeline/LncRAnalyzer/Main.groovy /pipeline/data.txt
 ```
 
 ## Thanks for using LncRAnalyzer docker version !!
