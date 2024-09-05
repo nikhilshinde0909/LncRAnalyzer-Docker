@@ -30,11 +30,12 @@ docker build -t lncranalyzer .
 docker run -it --rm -v /home/mpilab/LncRAnalyzer:/pipeline/LncRAnalyzer lncranalyzer
 ```
 
-5. Once you enter to interactive shell, move your tools.groovy file to LncRAnalzyer dir in container and exit
+5. Once you enter to interactive shell, view your tools.groovy file using cat and copy content type exit then with nano edit tools.groovy file and paste paths
    for e.g.
 ```
-root@17be1897ad94:/pipeline# mv tools.groovy LncRAnalyzer/
+root@17be1897ad94:/pipeline# cat tools.groovy 
 root@17be1897ad94:/pipeline# exit
+mpilab@mpilab-ThinkCentre-neo-50t-Gen-3:~$ nano tools.goory
 ```
 
 6. Prepare your data and data.txt in working directory
