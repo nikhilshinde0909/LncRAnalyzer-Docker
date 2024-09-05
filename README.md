@@ -30,14 +30,14 @@ docker build -t lncranalyzer .
 docker run -it --rm -v /home/mpilab/LncRAnalyzer:/pipeline/LncRAnalyzer lncranalyzer
 ```
 
-6. Once you enter to interactive shell, move your tools.groovy file to LncRAnalzyer dir in container and exit
+5. Once you enter to interactive shell, move your tools.groovy file to LncRAnalzyer dir in container and exit
    for e.g.
 ```
 root@17be1897ad94:/pipeline# mv tools.groovy LncRAnalyzer/
 root@17be1897ad94:/pipeline# exit
 ```
 
-5. Prepare your data and data.txt in working directory
+6. Prepare your data and data.txt in working directory
 Working directory
 ```
 ├── data
@@ -54,7 +54,7 @@ Working directory
 └── data.txt
 ```
 
-6. If you don't have reference genome, annotations and rRNA sequence information; you can download the same with script provided with pipeline as follows
+7. If you don't have reference genome, annotations and rRNA sequence information; you can download the same with script provided with pipeline as follows
 ```
 python check_ensembl.py org_name
 eg. python find_species_in_ensembl.py Sorghum
@@ -64,7 +64,7 @@ eg. python download_datasets_ensembl.py sbicolor
 > Ensembl version 56 <- download the datasets
 ```
 
-7. Run the LncRNAlyzer using docker as follows
+8. Run the LncRNAlyzer using docker as follows
 ```
 docker run --rm \
     -v /home/mpilab/LncRAnalyzer:/pipeline/LncRAnalyzer \
