@@ -25,9 +25,16 @@ mv LncRAnalyzer-Docker LncRAnalyzer && cd LncRAnalyzer
 docker build -t lncranalyzer .
 ```
 
-4. Run Container with Interactive Shell
+4. Run Container with interactive shell this will enters in the docker shell 
 ```
 docker run -it --rm -v /home/mpilab/LncRAnalyzer:/pipeline/LncRAnalyzer lncranalyzer
+```
+
+6. Once you enter to interactive shell, move your tools.groovy file to LncRAnalzyer dir in container and exit
+   for e.g.
+```
+root@17be1897ad94:/pipeline# mv tools.groovy LncRAnalyzer/
+root@17be1897ad94:/pipeline# exit
 ```
 
 5. Prepare your data and data.txt in working directory
