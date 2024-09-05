@@ -32,6 +32,7 @@ docker run -it --rm -v /home/mpilab/LncRAnalyzer:/pipeline/LncRAnalyzer
 
 5. Prepare your data and data.txt in working directory
 Working directory
+```
 ├── data
 │   ├── SRR975551_1.fastq.gz
 │   ├── SRR975552_1.fastq.gz
@@ -44,6 +45,7 @@ Working directory
 |   └── hg38.annotation.gtf
 |   └── (and other files)
 └── data.txt
+```
 
 6. If you don't have reference genome, annotations and rRNA sequence information; you can download the same with script provided with pipeline as follows
 ```
