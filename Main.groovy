@@ -35,9 +35,9 @@ lnc_venn_script = codeBase + "/scripts/Lnc-Venn.R"
 lnc_intersect_script = codeBase + "/scripts/Lnc-Intersect.R"
 npct_intersect_script = codeBase + "/scripts/NPCTs-Intersect.R"
 lnc_roc_script = codeBase + "/scripts/ROC_curve.R"
+subset_gtf = codeBase + "/scripts/subset_gtf.py
 
 load codeBase+"/tools.groovy"
-
 load codeBase+"/stages/fastp.groovy"
 load codeBase+"/stages/rRNA_unmapped.groovy"
 load codeBase+"/stages/align_assembly.groovy"
