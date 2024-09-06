@@ -25,7 +25,7 @@ mv LncRAnalyzer-Docker LncRAnalyzer && cd LncRAnalyzer
 docker build -t lncranalyzer .
 ```
 
-4. Run following commands and check LncRAnalyzer and tool.groovy has proper paths 
+4. Run following commands and check LncRAnalyzer and tool.groovy has been created and written proper paths 
 ```
 docker run --rm -it lncranalyzer bash
 cd LncRAnalyzer/
