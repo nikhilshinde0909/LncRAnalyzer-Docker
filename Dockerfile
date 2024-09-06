@@ -36,10 +36,14 @@ RUN mamba env create --file /tmp/FEELnc.yml && conda clean -a
 
 # Set the working directory
 WORKDIR /pipeline
+RUN mkdir /pipeline/LncRAnalyzer
+
+# Copy LncRAnalyzer
+COPY . /pipeline/LncRAnalyzer
 
 # Copy and run the script to add paths for tools
 COPY add_paths_for_tools.sh /tmp/
-RUN chmod +x /tmp/add_paths_for_tools.sh && bash /tmp/add_paths_for_tools.sh > $(pwd)/tools.groovy
+RUN chmod +x /tmp/add_paths_for_tools.sh && bash /tmp/add_paths_for_tools.sh > $(pwd)/LncRAnalyzer/tools.groovy
 
 # Default command to start a bash shell
 CMD ["bash"]
