@@ -60,7 +60,7 @@ eg. python download_datasets_ensembl.py sbicolor
 > Ensembl version 56 <- download the datasets
 ```
 
-7. Run the LncRNAlyzer using docker as follows
+7. Run the LncRNAlyzer using docker in your working directory as follows
 ```
 docker run --rm \
     -v $(pwd)/data:/pipeline/data \
