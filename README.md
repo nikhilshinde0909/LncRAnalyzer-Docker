@@ -20,12 +20,12 @@ git clone https://github.com/nikhilshinde0909/LncRAnalyzer-Docker.git
 mv LncRAnalyzer-Docker LncRAnalyzer && cd LncRAnalyzer
 ```
 
-3. Build docker image
+3. Build a docker image from dockerfile
 ```
 docker build -t lncranalyzer .
 ```
 
-4. Run following commands and check LncRAnalyzer and tool.groovy has been created and written proper paths 
+4. Run following commands and check LncRAnalyzer and tool.groovy has been created and configured the proper paths 
 ```
 docker run --rm -it lncranalyzer bash
 cd LncRAnalyzer/
