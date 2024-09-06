@@ -29,7 +29,8 @@ docker build -t lncranalyzer .
 ```
 docker run --rm -it lncranalyzer bash
 cd LncRAnalyzer/
-cat tools.groovt
+cat tools.groovy
+exit
 ```
 
 5. Prepare data and data.txt your in working directory
