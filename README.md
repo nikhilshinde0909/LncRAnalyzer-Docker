@@ -67,7 +67,7 @@ docker run \
     -v $(pwd)/data.txt:/pipeline/data.txt \
     lncranalyzer bpipe run -n 16 /pipeline/LncRAnalyzer/Main.groovy /pipeline/data.txt
 ```
-8. Copy your output data as follows
+8. Export your results to local as follows
 ```
 # list containers
 docker ps -a
