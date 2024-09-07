@@ -62,12 +62,19 @@ eg. python download_datasets_ensembl.py sbicolor
 
 7. Run the LncRNAlyzer using docker in your working directory as follows
 ```
-docker run --rm \
+docker run \
     -v $(pwd)/data:/pipeline/data \
     -v $(pwd)/data.txt:/pipeline/data.txt \
     lncranalyzer bpipe run -n 16 /pipeline/LncRAnalyzer/Main.groovy /pipeline/data.txt
 ```
+8. Copy your output data as follows
+```
+# list containers
+docker ps -a
 
+# Copy data
+docker cp container_id:/pipeline ${path to copy resuls}
+```
 ## Thanks for using LncRAnalyzer docker version !!
 
 ## Peformace
