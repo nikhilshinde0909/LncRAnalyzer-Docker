@@ -35,20 +35,22 @@ RUN mamba env create --file /tmp/rnasamba.yml && conda clean -a
 COPY FEELnc.yml /tmp/
 RUN mamba env create --file /tmp/FEELnc.yml && conda clean -a
 
-# Download and install HMMER 3.1b from the source code
-WORKDIR /tmp
+# Set working directory
+WORKDIR /pipeline
+
+# Install HMMER=3.1b1 from source code
 RUN wget -O hmmer-3.1b1.tar.gz http://eddylab.org/software/hmmer/hmmer-3.1b1.tar.gz \
-    && tar zxvf hmmer-3.1b1.tar.gz \
-    && rm -rf hmmer-3.1b1.tar.gz
+    && tar -zxvf hmmer-3.1b1.tar.gz \
+    && rm hmmer-3.1b1.tar.gz
     
-WORKDIR /tmp/hmmer-3.1b1
+WORKDIR /pipeline/hmmer-3.1b1
 RUN ./configure \
     && make \
     && ln -sf $(pwd)/src/* /opt/mambaforge/bin/
-    
-# Set the working directory
+
+# Create a directory for LncRAnalyzer
 WORKDIR /pipeline
-RUN mkdir /pipeline/LncRAnalyzer
+RUN mkdir LncRAnalyzer
 
 # Copy LncRAnalyzer
 COPY . /pipeline/LncRAnalyzer
