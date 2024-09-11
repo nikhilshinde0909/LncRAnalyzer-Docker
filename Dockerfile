@@ -36,14 +36,14 @@ COPY FEELnc.yml /tmp/
 RUN mamba env create --file /tmp/FEELnc.yml && conda clean -a
 
 # Set working directory
-WORKDIR /pipeline
+WORKDIR /opt/mambaforge
 
 # Install HMMER=3.1b1 from source code
-RUN wget -O hmmer-3.1b1.tar.gz http://eddylab.org/software/hmmer/hmmer-3.1b1.tar.gz \
+RUN curl -L http://eddylab.org/software/hmmer/hmmer-3.1b1.tar.gz -o hmmer-3.1b1.tar.gz \
     && tar -zxvf hmmer-3.1b1.tar.gz \
     && rm hmmer-3.1b1.tar.gz
     
-WORKDIR /pipeline/hmmer-3.1b1
+WORKDIR /opt/mambaforge/hmmer-3.1b1
 RUN ./configure \
     && make \
     && ln -sf $(pwd)/src/* /opt/mambaforge/bin/
