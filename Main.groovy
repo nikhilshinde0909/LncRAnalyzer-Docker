@@ -18,6 +18,7 @@ intergenic_filter_options="--monoex=0 --size=200"
 intergenic_codpot_options="--mode=intergenic"
 CPAT_options=""
 slncky_options=""
+slncky_ortho_options="--no_filter --minMatch=0.01 --no_orf --pad=100000"
 
 // Input options
 fastqFormatPaired="%_*.fastq.gz"
@@ -83,8 +84,8 @@ run_check = {
 nthreads=bpipe.Config.config.maxThreads
 
 run { set_input + run_check + 
-	quality_trimming.using(threads: nthreads) +
-	unmapped_reads_to_rRNAs.using(threads: nthreads) +
+	//quality_trimming.using(threads: nthreads) +
+	//unmapped_reads_to_rRNAs.using(threads: nthreads) +
 	genome_guided_assembly +
 	annotation_compare.using(threads: nthreads) +
 	lnc_npc_transcript_selection.using(threads: nthreads) +
