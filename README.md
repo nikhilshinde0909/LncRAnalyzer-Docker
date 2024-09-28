@@ -52,10 +52,10 @@ Working directory
 
 6. If you don't have reference genome, annotations and rRNA sequence information; you can download the same with script provided with pipeline as follows
 ```
-python check_ensembl.py org_name
+python check_ensembl.py <org_name>
 eg. python find_species_in_ensembl.py Sorghum
 > sbicolor
-python ensembl.py org_name_in_ensembl
+python ensembl.py <org_name>
 eg. python download_datasets_ensembl.py sbicolor
 > Ensembl version 56 <- download the datasets
 ```
