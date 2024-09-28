@@ -59,6 +59,12 @@ python ensembl.py org_name_in_ensembl
 eg. python download_datasets_ensembl.py sbicolor
 > Ensembl version 56 <- download the datasets
 ```
+Similarly, if you don't have liftover files for conservation analysis then you can generate it through genome alignments of reference and query species genomes as follows
+```
+python Liftover.py <threads> <genome> <org_name> <genome_related_species> <rel_sp_name> <params_distance>
+eg.
+python Liftover.py 16 Sorghum_bicolor.dna.toplevel.fa Sbicolor Zea_mays.dna.toplevel.fa Zmays near
+```
 
 7. Run the LncRNAlyzer using docker in your working directory as follows
 ```
