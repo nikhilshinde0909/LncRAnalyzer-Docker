@@ -121,7 +121,8 @@ def main():
     for file in os.listdir('.'):
        if (f"-{distance_seed}" in file or 
          file.startswith(f"{org_name}.{rel_sp_name}.all.chain") or 
-         file.startswith(f"{org_name}-{rel_name}")):
+         file.startswith(f"{org_name}-{rel_name}")) or
+         file.endswith(f".maf")):
          os.remove(file)
 
 if __name__ == "__main__":
