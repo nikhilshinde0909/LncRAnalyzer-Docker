@@ -61,7 +61,7 @@ def gtf_to_bed(gtf_file, output_prefix):
     with open(f"{output_prefix}_noncoding.bed", 'w') as f:
         f.writelines(noncoding)
 
-# Define command-line arguments
+# Command-line arguments
 if len(sys.argv) != 3:
     print("Usage: python ensembl_gtf2bed.py <ensembl_gtf> <output_prefix>")
     sys.exit(1)
