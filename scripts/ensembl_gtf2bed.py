@@ -10,6 +10,7 @@ def gtf_to_bed(gtf_file, output_prefix):
     snoRNA = []
     miRNA = []
     noncoding = []
+    noncoding_misc = []
 
     for line in lines:
         if line.startswith('#'):
@@ -45,23 +46,27 @@ def gtf_to_bed(gtf_file, output_prefix):
                 snoRNA.append(bed_entry)
             elif biotype in ['miRNA', 'pre_miRNA']:
                 miRNA.append(bed_entry)
-            else:
+            elif biotype =='ncRNA':
                 noncoding.append(bed_entry)
+            else:
+                noncoding_misc.append(bed_entry)
 
     # Write to BED12 files
-    with open(f"{output_prefix}_protein_coding.bed", 'w') as f:
+    with open(f"{output_prefix}.protein_coding.bed", 'w') as f:
         f.writelines(protein_coding)
     
-    with open(f"{output_prefix}_snoRNA.bed", 'w') as f:
+    with open(f"{output_prefix}.snoRNA.bed", 'w') as f:
         f.writelines(snoRNA)
 
-    with open(f"{output_prefix}_miRNA.bed", 'w') as f:
+    with open(f"{output_prefix}.miRNA.bed", 'w') as f:
         f.writelines(miRNA)
 
-    with open(f"{output_prefix}_noncoding.bed", 'w') as f:
+    with open(f"{output_prefix}.noncoding.bed", 'w') as f:
         f.writelines(noncoding)
+    with open(f"{output_prefix}.nc_misc.bed", 'w') as f:
+        f.writelines(noncoding_misc)
 
-# Command-line arguments
+# Define command-line arguments
 if len(sys.argv) != 3:
     print("Usage: python ensembl_gtf2bed.py <ensembl_gtf> <output_prefix>")
     sys.exit(1)
@@ -72,4 +77,3 @@ output_prefix = sys.argv[2]
 
 # Run function
 gtf_to_bed(gtf_file, output_prefix)
-
