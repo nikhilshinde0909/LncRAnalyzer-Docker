@@ -37,7 +37,7 @@ RUN mamba env create --file /tmp/FEELnc.yml && conda clean -a
 
 # Install HMMER=3.1b1 from source code
 WORKDIR /opt/mambaforge
-RUN git clone https://github.com/slncky/slncky.git
+RUN git clone https://github.com/slncky/slncky.git \
     && ln -sf $(pwd)/slncky/* /opt/mambaforge/bin/
 RUN curl -L http://eddylab.org/software/hmmer/hmmer-3.1b1.tar.gz -o hmmer-3.1b1.tar.gz \
     && tar -zxvf hmmer-3.1b1.tar.gz \
