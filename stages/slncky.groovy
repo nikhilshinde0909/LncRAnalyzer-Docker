@@ -1,5 +1,5 @@
 /***********************************************************
- ** Stages run lnc RNA analysis with slncky with python 3
+ ** Stages run lnc RNA analysis with slncky with python 2.75
  ** Author: Nikhil Shinde <sd1172@srmist.edu.in>
  ** Last Update: 30/05/2023
  *********************************************************/
@@ -20,7 +20,7 @@ ref_genome_bed = {
 }
 
 fasta_index = {
-    if ('${genome}.fai' != "" && '${genome_related_species}.fai' != ""){
+    if ('${genome}.fai' != "" && '${genome_related_species}.fai' != "") {
         exec """
         $samtools faidx ${genome} ;
         $samtools faidx ${genome_related_species}
@@ -82,7 +82,7 @@ run_slncky = {
 	from("annotation.config","Putative-lnc-nptcs.bed") produce("slncky_out.lncs.info.txt"){
 	exec """
 	source $Activate cpc2-cpat-slncky ;
-	$slncky -n $threads -c $input1 $input2 $org_name $slncky_options $output.prefix.prefix.prefix
+	$python2 $slncky -n $threads -c $input1 $input2 $org_name $slncky_options $output.prefix.prefix.prefix
 	"""
 	  }
 }
@@ -93,7 +93,7 @@ ortholog_search = {
 	from("annotation.config", "Putative-lnc-nptcs.bed") produce(rel_sp_name+".orthologs.top.txt"){
         exec """
         source ${Activate} cpc2-cpat-slncky ;
-        $slncky -n $threads -c $input1 $input2 $slncky_ortho_options $org_name $output.prefix.prefix.prefix
+        $python2 $slncky -n $threads -c $input1 $input2 $slncky_ortho_options $org_name $output.prefix.prefix.prefix
         """
     	} 
 	} else {
@@ -101,4 +101,5 @@ ortholog_search = {
         }
 }
 
-slncky_run = segment { ref_genome_bed + fasta_index + annotation_config + putative_lnc_npcts_bed + run_slncky + ortholog_search }
+slncky_run = segment { ref_genome_bed + fasta_index + annotation_config + putative_lnc_npcts_bed + 
+	run_slncky + ortholog_search }
