@@ -2,7 +2,7 @@
 Pipeline for identification of lncRNAs and Novel Protein Coding Transcripts (NPCTs)
 
 # Introduction
-LncRAnalyzer can be used to identify lncRNAs and Novel Protein Coding Transcripts (NPCT) with large number of RNA-seq datasets, it contains genome guided assembly, merge annotattions, annotation compare, classcode selection and final retrival of transcripts in fasta format. The putative lncRNAs and NPCTs will be further tested for their coding potentials with CPC2,CPAT, PLEK (Time consuming), LGC, PfamScan, and RNAsamba. Based on coding potentials lncRNAs and NPCTs will be selected. Additionally, if someone have Lifover files for the organism and related species; conservation analysis will be also performed with slncky. We integreated FEELnc plugin to detect the mRNA spliced and intergenic lncRNAs in RNA-seq samples. For NPCTs one can go for TransDecoder followed by Pfamscan to retrive protein family annotations. Pipeline will be executed in conda environment.
+LncRAnalyzer can be used to identify lncRNAs and Novel Protein Coding Transcripts (NPCT) with a large number of RNA-seq datasets, it contains genome-guided assembly, merge annotations, annotation compare, classcode selection, and final retrieval of transcripts in fasta format. The putative lncRNAs and NPCTs will be further tested for their coding potentials with CPC2, CPAT, PLEK (Time-consuming), LGC, PfamScan, and RNAsamba. Based on coding potentials lncRNAs and NPCTs will be selected. Additionally, if someone has Lifover files for the organism and related species; conservation analysis will be also performed with Slncky. We integrated the FEELnc plugin to detect the mRNA spliced and intergenic lncRNAs in RNA-seq samples. For NPCTs, one can go for TransDecoder followed by Pfamscan to retrieve protein family annotations. The pipeline will be executed in a conda environment.
 
 <p align="center">
   <img src="https://github.com/nikhilshinde0909/LncRAnalyzer-Docker/blob/main/scripts/LncRAnalyzer.png" width=50% height=25%>
@@ -10,7 +10,7 @@ LncRAnalyzer can be used to identify lncRNAs and Novel Protein Coding Transcript
 
 
 # Implementation
-1. To execute the steps in pipeline, download latest release of LncRAnalyzer to your local system with following commamnd
+1. To execute the steps in the pipeline, download the latest release of LncRAnalyzer to your local system with the following command
 ```
 git clone https://github.com/nikhilshinde0909/LncRAnalyzer-Docker.git
 ```
@@ -20,12 +20,12 @@ git clone https://github.com/nikhilshinde0909/LncRAnalyzer-Docker.git
 mv LncRAnalyzer-Docker LncRAnalyzer && cd LncRAnalyzer
 ```
 
-3. Build a docker image from dockerfile
+3. Build a docker image from the docker file
 ```
 docker build -t lncranalyzer .
 ```
 
-4. Run following commands and check LncRAnalyzer and tool.groovy has been created and configured the proper paths 
+4. Run the following commands and check LncRAnalyzer and tool.groovy has been created and configured with the proper paths 
 ```
 docker run --rm -it lncranalyzer bash
 cd LncRAnalyzer/
@@ -33,7 +33,7 @@ cat tools.groovy
 exit
 ```
 
-5. Prepare data and data.txt your in working directory
+5. Prepare data and data.txt in your working directory
 Working directory
 ```
 ├── data
@@ -50,7 +50,7 @@ Working directory
 └── data.txt
 ```
 
-6. If you don't have reference genome, annotations and rRNA sequence information; you can download the same with script provided with pipeline as follows
+6. If you don't have reference genome, annotations, and rRNA sequence information; you can download the same with the script provided with the pipeline as follows
 ```
 python check_ensembl.py <org_name>
 eg. python find_species_in_ensembl.py Sorghum
@@ -65,13 +65,13 @@ python Liftover.py <threads> <genome> <org_name> <genome_related_species> <rel_s
 eg.
 python Liftover.py 16 Sorghum_bicolor.dna.toplevel.fa Sbicolor Zea_mays.dna.toplevel.fa Zmays near
 ```
-We also provide an additional script which will take ensembl gtf and produce bed files to run slncky as follows
+We also provide an additional script which will take ensembl gtf and produce bed files to run Slncky as follows
 ```
 python ensembl_gtf2bed.py <ensembl_gtf> <output_prefix>
 eg.
 python ensembl_gtf2bed.py Sorghum_bicolor.58.gtf Sorghum_bicolor
 ```
-This will produce protein-coding, non-coding, mirRNA, and snoRNA bed files for slncky. 
+This will produce protein-coding, non-coding, miRNA, and snoRNA bed files for Slncky. 
 7. Run the LncRNAlyzer using docker in your working directory as follows
 ```
 docker run \
