@@ -16,7 +16,7 @@ RUN apt-get update && \
     ca-certificates \
     && rm -rf /var/lib/apt/lists/* 
 
-# Install Miniforge
+# Install miniforge
 RUN curl -L https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-Linux-x86_64.sh -o miniforge.sh \
     && chmod +x miniforge.sh \
     && bash miniforge.sh -b -p /opt/miniforge \
@@ -41,6 +41,7 @@ RUN mamba env create --file /tmp/FEELnc.yml && conda clean -a
 # Install Slncky from source code
 WORKDIR /opt/miniforge
 RUN git clone https://github.com/slncky/slncky.git \
+    && rm -rf /opt/miniforge/envs/cpc2-cpat-slncky/bin/templates/ \
     && ln -sf $(pwd)/slncky/* /opt/miniforge/envs/cpc2-cpat-slncky/bin/
 
 # Install HMMER=3.1b1 from source code    
