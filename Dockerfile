@@ -4,23 +4,26 @@ ENV DEBIAN_FRONTEND=noninteractive
 LABEL authors="sd1172@srmist.edu.in" \
       description="Docker image containing all requirements for the LncRAnalyzer pipeline"
 
-# Install dependencies and Mambaforge
+# Install dependencies
 RUN apt-get update && \
     apt-get install -y \
     build-essential \
+    bash \
     curl \
     wget \
     git \
     bzip2 \
     ca-certificates \
-    && rm -rf /var/lib/apt/lists/* \
-    && curl -L https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-Linux-x86_64.sh -o mambaforge.sh \
-    && chmod +x mambaforge.sh \
-    && bash mambaforge.sh -b -p /opt/mambaforge \
-    && rm mambaforge.sh
+    && rm -rf /var/lib/apt/lists/* 
 
-# Set environment variables for Mambaforge
-ENV PATH="/opt/mambaforge/bin:${PATH}"
+# Install Miniforge
+RUN curl -L https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-Linux-x86_64.sh -o miniforge.sh \
+    && chmod +x miniforge.sh \
+    && bash miniforge.sh -b -p /opt/miniforge \
+    && rm miniforge.sh
+
+# Set environment variables for miniforge
+ENV PATH="/opt/miniforge/bin:${PATH}"
 
 # Install Conda environments
 COPY LncRAnalyzer.yml /tmp/
@@ -35,18 +38,20 @@ RUN mamba env create --file /tmp/rnasamba.yml && conda clean -a
 COPY FEELnc.yml /tmp/
 RUN mamba env create --file /tmp/FEELnc.yml && conda clean -a
 
-# Install HMMER=3.1b1 from source code
-WORKDIR /opt/mambaforge
+# Install Slncky from source code
+WORKDIR /opt/miniforge
 RUN git clone https://github.com/slncky/slncky.git \
-    && ln -sf $(pwd)/slncky/* /opt/mambaforge/envs/cpc2-cpat-slncky/bin/
+    && ln -sf $(pwd)/slncky/* /opt/miniforge/envs/cpc2-cpat-slncky/bin/
+
+# Install HMMER=3.1b1 from source code    
 RUN curl -L http://eddylab.org/software/hmmer/hmmer-3.1b1.tar.gz -o hmmer-3.1b1.tar.gz \
     && tar -zxvf hmmer-3.1b1.tar.gz \
     && rm hmmer-3.1b1.tar.gz
     
-WORKDIR /opt/mambaforge/hmmer-3.1b1
+WORKDIR /opt/miniforge/hmmer-3.1b1
 RUN ./configure \
     && make \
-    && ln -sf $(pwd)/src/* /opt/mambaforge/bin/
+    && ln -sf $(pwd)/src/* /opt/miniforge/bin/
 
 # Create a directory for LncRAnalyzer
 WORKDIR /pipeline
