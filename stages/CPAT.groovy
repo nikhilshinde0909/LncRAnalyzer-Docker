@@ -15,8 +15,11 @@ logit_model=codeBase+"/Models/CPAT/"+org_name+".logit.RData"
 extract_cds = {
 	output.dir=CPAT_dir
 	if (!file(hexamer_table) || !file(logit_model)){
-	produce(org_name+".cds.fa"){
-	exec "$gffread $annotation -g $genome -x $output"
+	produce(org_name+".cds.fa",org_name+".mRNAs.fa"){
+	exec """
+        $gffread $annotation -g $genome -x $output1 ;
+        $gffread $annotation -g $genome -x $output2
+        """
 	}
         } else { 
         exec "echo 'Hexamer table and logit models exist for organism'"
