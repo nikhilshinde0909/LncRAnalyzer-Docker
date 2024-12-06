@@ -1,3 +1,5 @@
+#!/usr/bin/env bpipe
+
 /***********************************************************
  ** Author: Nikhil Shinde <sd1172@srmist.edu.in>
  ** Last Update: 29/05/2023
