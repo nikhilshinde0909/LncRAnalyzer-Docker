@@ -77,7 +77,7 @@ This will produce protein-coding, non-coding, miRNA, and snoRNA bed files for Sl
 ```
 docker run \
     -v $(pwd)/data:/pipeline/data \
-    -v $(pwd)/data.txt:/pipeline/data.groovy \
+    -v $(pwd)/data.groovy:/pipeline/data.groovy \
     nikhilshinde0909/lncranalyzer bpipe run -n 16 /pipeline/LncRAnalyzer/Main.groovy /pipeline/data.groovy
 ```
 8. Export your results to local as follows
