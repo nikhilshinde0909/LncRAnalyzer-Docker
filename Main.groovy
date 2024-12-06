@@ -7,7 +7,7 @@
 
 VERSION="1.00"
 def printHelp() {
-    println "Usage: groovy main.groovy [options]"
+    println "Usage: bpipe run Main.groovy [options]"
     println "Options:"
     println "  < config_file >       Specify the config file eg. data.groovy"
     println "  --supporting_species  Show supporting species for LncRNAlyzer"
