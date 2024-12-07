@@ -3,10 +3,8 @@
  ** Last Update: 22/11/2024
  *********************************************************/
 
-DESeq2_dir="LncRAnalyzer-summary"
-
 perform_deseq2 = {
-	output.dir=DESeq2_dir
+	output.dir=summary_dir
 	if(design !=""){
 	from(org_name+"_PCG.TSV",org_name+"_Lnc.TSV") produce(org_name+"_PCG_DESeq2.TSV",org_name+"_Lnc_DESeq2.TSV"){
 	exec """
