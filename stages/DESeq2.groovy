@@ -3,6 +3,7 @@
  ** Last Update: 22/11/2024
  *********************************************************/
 
+// Perform differential expression analysis
 perform_deseq2 = {
 	output.dir=summary_dir
 	if(design !=""){
