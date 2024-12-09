@@ -1,5 +1,5 @@
 /***********************************************************
- ** Stages run lnc RNA analysis with CPAT with python 3
+ ** Stages run lnc RNA analysis with CPAT with python 2.75
  ** Author: Nikhil Shinde <sd1172@srmist.edu.in>
  ** Last Update: 30/05/2023
  *********************************************************/
