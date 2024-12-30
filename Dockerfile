@@ -43,13 +43,14 @@ RUN chmod +x /opt/miniforge/envs/cpc2-cpat-slncky/bin/slncky.v1.0 \
     && chmod +x /opt/miniforge/envs/cpc2-cpat-slncky/bin/alignTranscripts1.0 \
     && chmod -R 777 /opt/miniforge/envs/cpc2-cpat-slncky/lib/python2.7
 
-# Install HMMER=3.1b1 from source code    
+# Install HMMER=3.1b1 from source code  
+WORKDIR /opt/miniforge/  
 RUN curl -L http://eddylab.org/software/hmmer/hmmer-3.1b1.tar.gz -o hmmer-3.1b1.tar.gz \
     && tar -zxvf hmmer-3.1b1.tar.gz \
     && rm hmmer-3.1b1.tar.gz
-    
-WORKDIR /opt/miniforge/hmmer-3.1b1
-RUN ./configure \
+
+RUN cd hmmer-3.1b1 \
+    && ./configure \
     && make \
     && ln -sf $(pwd)/src/* /opt/miniforge/bin/
 
