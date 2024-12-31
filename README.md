@@ -33,7 +33,7 @@ cat tools.groovy
 exit
 ```
 
-5. Prepare data and data.txt in your working directory
+5. Prepare data and data.groovy in your working directory
 Working directory
 ```
 ├── data
