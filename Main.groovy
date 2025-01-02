@@ -117,7 +117,7 @@ lnc_roc_script = codeBase + "/scripts/ROC_curve.R"
 subset_gtf = codeBase + "/scripts/subset_gtf.py"
 DESeq2 = codeBase + "/scripts/DESeq2.R"
 fold10_crossval = codeBase + "/scripts/10fold_crossval.R"
-summary_clasification= codeBase + "/scripts/get_lncRNA_classes.R"
+summary_clasification = codeBase + "/scripts/get_lncRNA_classes.R"
 
 load codeBase+"/tools.groovy"
 load codeBase+"/stages/fastp.groovy"
